@@ -16,15 +16,13 @@ App = React.createClass({
   handleSubmit(event) {
       event.preventDefault();
 
-      // Find the text field via the React ref
       var text = React.findDOMNode(this.refs.textInput).value.trim();
 
       Tasks.insert({
         text: text,
-        createdAt: new Date() // current time
+        createdAt: new Date()
       });
 
-      // Clear form
       React.findDOMNode(this.refs.textInput).value = "";
     },
 
