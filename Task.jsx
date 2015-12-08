@@ -4,13 +4,11 @@ Task = React.createClass({
   },
 
   toggleChecked() {
-    Tasks.update(this.props.task._id, {
-      $set: {checked: ! this.props.task.checked}
-    });
+    Meteor.call("setChecked", this.props.task._id, ! this.props.task.checked);
   },
 
   deleteThisTask() {
-    Tasks.remove(this.props.task._id);
+    Meteor.call("removeTask", this.props.task._id);
   },
 
   render() {

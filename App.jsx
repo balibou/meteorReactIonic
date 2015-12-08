@@ -32,12 +32,7 @@ App = React.createClass({
 
       var text = React.findDOMNode(this.refs.textInput).value.trim();
 
-      Tasks.insert({
-        text: text,
-        createdAt: new Date(),
-        owner: Meteor.userId(),
-        username: Meteor.userId()
-      });
+      Meteor.call("addTask", text);
 
       React.findDOMNode(this.refs.textInput).value = "";
     },
