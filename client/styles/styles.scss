@@ -1,2 +1,23 @@
 @import ".meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic";
 @import ".meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons";
+
+.profile-wrapper {
+  height: 40vh;
+  .image-wrapper {
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      border: solid 1px #ccc;
+      border-radius: 50%;
+      height: 150px;
+      width: 150px;
+    }
+  }
+  .login-wrapper {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+  }
+}

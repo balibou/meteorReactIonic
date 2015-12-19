@@ -7,3 +7,12 @@ if (MyData.find().count() === 0) {
     });
   });
 }
+if (Meteor.users.find().count() === 0) {
+  Accounts.createUser({
+    username: "boubou",
+    password: "boubou",
+    profile: {
+      image: "http://i.imgur.com/NqyBZSp.gif"
+    }
+  })
+}
