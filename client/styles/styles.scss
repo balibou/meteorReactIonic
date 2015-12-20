@@ -21,3 +21,22 @@
     justify-content: center;
   }
 }
+
+
+.modal-enter {
+  transform: translateY(100%);
+}
+
+.modal-enter.modal-enter-active {
+  transform: translateY(0);
+  transition: transform .3s ease;
+}
+
+.modal-leave {
+  transform: translateY(0);
+}
+
+.modal-leave.modal-leave-active {
+  transform: translateY(100%);
+  transition: transform .3s ease;
+}

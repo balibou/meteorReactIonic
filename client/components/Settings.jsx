@@ -2,8 +2,8 @@ Settings = React.createClass({
   render() {
     return (
       <div>
-        <Profile />
-        <SettingsList />
+        <Profile ionModal={this.props.ionModal}/>
+        <SettingsList ionModal={this.props.ionModal}/>
       </div>
     )
   }
@@ -17,7 +17,13 @@ Profile = React.createClass({
       userLoading: Meteor.loggingIn()
     }
   },
+  getLoginStatus() {
+    if (this.data.userLoading || !this.data.user) {return false;}
+    if (this.data.user) {return true;}
+    return false
+  },
   render() {
+    let loginStatus = this.getLoginStatus();
     if (this.data.userLoading) {
       return <AppLoading />
     }
@@ -30,7 +36,7 @@ Profile = React.createClass({
           <img src={this.data.user.profile.image} />
         </div>
         <div className="login-wrapper">
-          Logout
+          {loginStatus ? <LoggedIn ionModal={this.props.ionModal} /> : <NotLoggedIn ionModal={this.props.ionModal} />}
         </div>
       </div>
     )
@@ -46,7 +52,7 @@ SettingsList = React.createClass({
   render() {
     let list = this.props.settings.map((setting) => {
       return (
-        <div className="item" key={setting}>
+        <div onClick={this.props.ionModal.bind(null, setting)} className="item" key={setting}>
           <h2><a>{setting}</a></h2>
         </div>
       )
@@ -56,5 +62,27 @@ SettingsList = React.createClass({
         {list}
       </div>
     )
+  }
+})
+
+LoggedIn = React.createClass({
+  logout() {
+    Meteor.logout();
+  },
+  render() {
+    return (
+      <div>
+        <a onClick={this.logout}>Logout</a>
+      </div>
+    )
+  }
+})
+
+NotLoggedIn = React.createClass({
+  login(user, pass) {
+    Meteor.loginWithPassword(user, pass);
+  },
+  render() {
+    return <a>Login</a>
   }
 })
