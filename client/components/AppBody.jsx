@@ -2,21 +2,16 @@ const {Link} = ReactRouter;
 let Transition = React.addons.CSSTransitionGroup;
 
 AppBody = React.createClass({
-  setModalState(status) {
-    this.setState({
-      modal: status
-    })
-  },
   getInitialState() {
     return {
       modal: false
     }
   },
-  ionModal(tab, content) {
+  ionModal(settings) {
     this.setState({
       modal: (
-        <IonModal modalContent={content}>
-          <div className="h1 title">{tab}</div>
+        <IonModal>
+          <div className="h1 title">{settings}</div>
           <button onClick={ () => this.setState({modal:false}) } className="button button-icon active">
             <i className="icon ion-ios-close-empty"></i>
           </button>
@@ -35,11 +30,10 @@ AppBody = React.createClass({
         <div className="view">
           <div className="scroll-content ionic-scroll">
             <div className="content overflow-scroll has-header">
-              {/*{this.props.children && React.cloneElement(this.props.children, {
+              {this.props.children && React.cloneElement(this.props.children, {
             ionModal: this.ionModal
-          }, {setModalState: this.setModalState})}*/}
-              {React.cloneElement(this.props.children, {
-              ionModal: this.ionModal, setModalState: this.setModalState})}
+          })}
+              {/*{this.props.ionModal}*/}
             </div>
           </div>
         </div>

@@ -5,10 +5,11 @@ IonModal = React.createClass({
         <div className="modal-wrapper">
           <div className="modal">
             <div className="bar bar-light bar-header">
-              {this.props.children}
-            </div>
-            <div className="content overflow-scroll has-header">
-              {this.props.modalContent}
+              <div className="content overflow-scroll">
+                <div className="padding">
+                  {this.props.children}
+                </div>
+              </div>
             </div>
           </div>
         </div>
