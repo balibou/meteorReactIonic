@@ -16,11 +16,11 @@
 {
   "public": {
     "facebook": {
-      "AppID": <APP ID>
+      "AppID": "<APP ID>"
     }
   },
   "facebook": {
-    "AppSecret": <APP SECRET ID>
+    "AppSecret": "<APP SECRET ID>"
   }
 }
 
