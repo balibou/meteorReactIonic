@@ -27,15 +27,16 @@ Profile = React.createClass({
     if (this.data.userLoading) {
       return <AppLoading />
     }
-    if (!this.data.user) {
-      return <h2>Please Log in.</h2>
-    }
+    // if (!this.data.user) {
+    //   return <h2>Please Log in.</h2>
+    // }
     return (
       <div className="profile-wrapper">
-        <div className="image-wrapper">
-          <img src={this.data.user.profile.image} />
-        </div>
+        {/*<div className="image-wrapper">
+          {loginStatus ? <img src={this.data.user.profile.name} /> : <div></div>}
+        </div>*/}
         <div className="login-wrapper">
+          {loginStatus ? <div>{this.data.user.profile.name}</div> : <div></div>}
           {loginStatus ? <LoggedIn ionModal={this.props.ionModal} /> : <NotLoggedIn ionModal={this.props.ionModal} />}
         </div>
       </div>
@@ -79,10 +80,10 @@ LoggedIn = React.createClass({
 })
 
 NotLoggedIn = React.createClass({
-  login(user, pass) {
-    Meteor.loginWithPassword(user, pass);
+  login() {
+    Meteor.loginWithFacebook()
   },
   render() {
-    return <a>Login</a>
+    return <a onClick={this.login}>Login</a>
   }
 })

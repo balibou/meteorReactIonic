@@ -10,7 +10,21 @@
 3. In the project folder run meteor : `meteor` (there will maybe an error with scss but don't worry)
 4. Stop meteor : `CTRL + C`
 5. Paste the `styles.scss` in `client/styles` folder
-6. Run again meteor : `meteor`
+6. Create an application on facebook (get the id and secret id)
+7. Create a settings.json :
+
+{
+  "public": {
+    "facebook": {
+      "AppID": <APP ID>
+    }
+  },
+  "facebook": {
+    "AppSecret": <APP SECRET ID>
+  }
+}
+
+8. Run again meteor : `meteor --settings settings.json`
 
 ### Update
 
