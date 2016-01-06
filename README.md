@@ -12,7 +12,7 @@
 5. Paste the `styles.scss` in `client/styles` folder
 6. Create an application on facebook (get the id and secret id)
 7. Create a settings.json :
-
+```
 {
   "public": {
     "facebook": {
@@ -23,8 +23,8 @@
     "AppSecret": "APP SECRET ID"
   }
 }
-
-8. Run again meteor : `meteor --settings settings.json`
+```
+8. Run again meteor for desktop : `meteor --settings settings.json` or iOS `meteor run ios --settings settings.json`
 
 ### Update
 
