@@ -2,6 +2,12 @@ const {Link} = ReactRouter;
 let Transition = React.addons.CSSTransitionGroup;
 
 AppBody = React.createClass({
+  mixins: [ReactMeteorData],
+  getMeteorData() {
+    return {
+      user: Meteor.user()
+    }
+  },
   getInitialState() {
     return {
       modal: false
@@ -19,7 +25,33 @@ AppBody = React.createClass({
       )
     })
   },
+  login() {
+    Meteor.loginWithFacebook()
+  },
   render() {
+    if (!this.data.user) {
+      return (
+        <div className="ionic-body">
+          <div className="view welcome-view">
+              <div className="top-content row">
+                <div className="app-copy col col-top">
+                  <h1 className="app-logo">Starter</h1>
+                  <p className="app-tagline">
+                      Mobile starter with Meteor + React + Ionic + Facebook.
+                    </p>
+                </div>
+              </div>
+              <div className="bottom-content row">
+                <div className="col col-bottom">
+                  <a onClick={this.login} className="facebook-sign-in button button-block">
+                    Log in with Facebook
+                  </a>
+                </div>
+              </div>
+          </div>
+        </div>
+      )
+    }
     return (
       <div className="ionic-body">
         <div className="bar bar-header bar-light">
