@@ -5,7 +5,8 @@ AppBody = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     return {
-      user: Meteor.user()
+      user: Meteor.user(),
+      userLoading: Meteor.loggingIn()
     }
   },
   getInitialState() {
@@ -29,6 +30,9 @@ AppBody = React.createClass({
     Meteor.loginWithFacebook()
   },
   render() {
+    if (this.data.userLoading) {
+      return <SpinnerView />
+    }
     if (!this.data.user) {
       return (
         <div className="ionic-body">

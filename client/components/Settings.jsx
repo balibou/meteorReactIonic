@@ -10,7 +10,7 @@ Settings = React.createClass({
 });
 
 Profile = React.createClass({
-  mixins: [ReactMeteorData],
+  mixins: [ReactMeteorData, SpinnerMixin],
   getMeteorData() {
     return {
       user: Meteor.user(),
@@ -24,9 +24,6 @@ Profile = React.createClass({
   },
   render() {
     let loginStatus = this.getLoginStatus();
-    if (this.data.userLoading) {
-      return <AppLoading />
-    }
     return (
       <div className="profile-wrapper">
         {/*<div className="image-wrapper">
