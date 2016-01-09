@@ -34,8 +34,8 @@ Profile = React.createClass({
         </div>*/}
         <div className="login-wrapper">
           {loginStatus ? <div>{this.data.user.profile.name}</div> : <div></div>}
-          {loginStatus ? <LoggedIn ionModal={this.props.ionModal} /> : <div></div>}
         </div>
+        {loginStatus ? <LoggedIn ionModal={this.props.ionModal} /> : <div></div>}
       </div>
     )
   }
@@ -69,9 +69,11 @@ LoggedIn = React.createClass({
   },
   render() {
     return (
-      <div>
-        <a onClick={this.logout}>Logout</a>
-      </div>
+        <div className="row">
+          <div className="col">
+            <a onClick={this.logout} className="button button-assertive button-block button-outline">Log Out</a>
+          </div>
+        </div>
     )
   }
 })
