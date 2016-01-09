@@ -1,5 +1,6 @@
 @import ".meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic";
 @import ".meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons";
+@import "variables";
 
 .profile-wrapper {
   height: 40vh;
@@ -40,3 +41,17 @@
   transform: translateY(100%);
   transition: transform .3s ease;
 }
+
+.bottom-content
+  {
+    height: 100px;
+
+		.facebook-sign-in
+		{
+			border-radius: 4px;
+			font-weight: 500;
+			color: $auth-small-btn-color;
+			background-color: $facebook-blue;
+			border-color: darken($facebook-blue, 2);
+		}
+	}

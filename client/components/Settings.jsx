@@ -84,6 +84,12 @@ NotLoggedIn = React.createClass({
     Meteor.loginWithFacebook()
   },
   render() {
-    return <a onClick={this.login}>Login</a>
+    return (
+      <div className="bottom-content row">
+        <div className="col col-bottom">
+          <a onClick={this.login} className="facebook-sign-in button button-block">Login with Facebook</a>
+        </div>
+      </div>
+    )
   }
 })
