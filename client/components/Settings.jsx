@@ -26,9 +26,9 @@ Profile = React.createClass({
     let loginStatus = this.getLoginStatus();
     return (
       <div className="profile-wrapper">
-        {/*<div className="image-wrapper">
-          {loginStatus ? <img src={this.data.user.profile.name} /> : <div></div>}
-        </div>*/}
+        <div className="image-wrapper">
+          {loginStatus ? <img src={this.data.user.profile.picture} /> : <div></div>}
+        </div>
         <div className="login-wrapper">
           {loginStatus ? <div>{this.data.user.profile.name}</div> : <div></div>}
         </div>
