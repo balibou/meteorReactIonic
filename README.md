@@ -1,8 +1,9 @@
 # meteoreact
 
-![meteorreactionicimg](meteorreactionic.png)
+## Preview
+![](meteoreact.gif)
 
-### Get started
+## Getting started
 
 1. Install meteor :
 `curl https://install.meteor.com/ | sh`
@@ -26,7 +27,7 @@
 ```
 8. Run again meteor for desktop : `meteor --settings settings.json` or iOS `meteor run ios --settings settings.json`
 
-### Update
+## Update
 
 * The starter app comes from [here](https://medium.com/@SamCorcos/meteor-react-ionic-mobile-app-part-1-the-basic-template-9355ebf3397f#.o76zpx7ng) thanks to [Sam Corcos](https://github.com/samcorcos).
-* This one is an upgraded version with the support of the official react router package, and susbscriptions/publications.
+* This one is an upgraded version with the support of the official react router package, and susbscriptions/publications and Facebook login only.
